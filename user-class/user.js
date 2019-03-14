@@ -4,13 +4,15 @@ class User {
     this.email = email;
     this.password = password;
   }
-  updateRecord(update) {
-    for (const key in update) {
-      this[key] = update[key];
+  updateRecord(password, update) {
+    if (this.password === password) {
+      for (const key in update) {
+        this[key] = update[key];
+      }
     }
   }
-  viewPersonalRecord() {
-    return Object.toString(this);
+  viewPersonalDetails() {
+    return { name: this.name, email: this.email, password: this.password };
   }
 }
 
