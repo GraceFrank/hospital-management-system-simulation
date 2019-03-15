@@ -7,14 +7,24 @@ class Patient extends User {
   }
 
   bookDoctorsAppointment(dateTime, doctor) {
-    dataManager.bookDoctorsAppointment(dateTime, doctor, this.email);
+    dataManager.bookDoctorsAppointment(
+      this.userCategory,
+      dateTime,
+      doctor,
+      this.email
+    );
   }
   cancelDoctorsAppointment(dateTime, doctor) {
-    dataManager.cancelDoctorsAppointment(dateTime, doctor, this.email);
+    dataManager.cancelDoctorsAppointment(
+      this.userCategory,
+      dateTime,
+      doctor,
+      this.email
+    );
   }
 
   viewAppointments() {
-    dataManager.viewAppointments(this.email);
+    dataManager.viewAppointments(this.userCategory, this.email);
   }
 }
 
