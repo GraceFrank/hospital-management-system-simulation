@@ -1,12 +1,26 @@
-const doctors = require("../data/doctors-records");
-const patients = require("../data/patient-records");
+const doctorsRecords = require("../data/doctors-records");
+const patientsRecords = require("../data/patient-records");
 class DataManager {
-  addNewUser(userCategory, userDetails) {
-    userCategory[userDetails.email] = userDetails;
+  getDateBase(string) {
+    switch (string) {
+      default:
+        return patientsRecords;
+
+      case "doctor":
+        return doctorsRecords;
+    }
   }
 
-  updateUserDetails(userCategory, userId, updateDetails) {
-    userCategory[userId] = updateDetails;
+  addNewUser(userCategory, userDetails) {
+    getDateBase(userCategory)[userDetails.email] = userDetails;
+  }
+
+  updateUserDetails(userCategory, userEmail, updateDetails) {
+    getDateBase(userCategory)[userEmail] = updateDetails;
+  }
+
+  getUserDetails(userEmail, userCategory) {
+    return getDateBase(userCategory)[userEmail];
   }
 }
 
