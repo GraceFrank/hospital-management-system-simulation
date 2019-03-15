@@ -33,7 +33,7 @@ describe("testing the updateRecord Method of userClass", () => {
   });
 
   test("that object properties are updated with correct details ", () => {
-    dareLawal.updateRecord("lawal123hospital", {
+    dareLawal.updatePersonalDetails("lawal123hospital", {
       name: "Lawal Solomon",
       email: "darelawal@yahoo.com"
     });
